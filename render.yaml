@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: speed-crisis
+    runtime: node
+    buildCommand: yarn install && yarn assets
+    startCommand: yarn start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: SKETCHFAB_TOKEN
+        sync: false          # optional: paste your Sketchfab API token in the Render dashboard
+      - key: BUDGET_MB
+        value: "800"
+      - key: HDRI_RES
+        value: "2k"
